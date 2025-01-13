@@ -24,7 +24,7 @@ class MovieFactory extends Factory
             'rating' => rand(4, 10),
             'trailer_link' => fake()->url(),
             'admin_id' => 1,
-            'type_id' => rand(1,3),
+            'movie_type_id' => rand(1,3),
             'production_id' => rand(1,5),
             'director_id' => rand(1,5),
         ];

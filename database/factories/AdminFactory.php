@@ -23,7 +23,7 @@ class AdminFactory extends Factory
             'email' => fake()->unique()->safeEmail(),
             'password' => Hash::make('password'),
             'image' => 'default',
-            'role_id' => rand(1,5),
+            'role_id' => rand(1,2),
         ];
     }
 }

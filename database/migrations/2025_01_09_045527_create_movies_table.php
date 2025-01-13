@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('trailer_link');
             $table->softDeletes('deleted_at', 0);
             $table->foreignId('admin_id');
-            $table->foreignId('type_id');
+            $table->foreignId('movie_type_id');
             $table->foreignId('production_id');
             $table->foreignId('director_id');
             $table->timestamps();
