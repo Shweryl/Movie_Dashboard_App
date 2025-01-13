@@ -28,13 +28,7 @@ class MovieController extends Controller
      */
     public function create()
     {
-        $types = MovieType::all();
-        $directors = Director::all();
-        $productions = Production::all();
-        $actors = Actor::all();
-        $genres = Genre::all();
-
-        return view('movies.movie-create', compact('types', 'directors', 'productions', 'actors', 'genres'));
+        return view('movies.movie-create');
     }
 
     /**
@@ -82,13 +76,7 @@ class MovieController extends Controller
     {
         $movie  = Movie::with(['actors','genres'])->find($id);
 
-        $types = MovieType::all();
-        $directors = Director::all();
-        $productions = Production::all();
-        $actors = Actor::all();
-        $genres = Genre::all();
-
-        return view('movies.movie-edit', compact('movie', 'types', 'directors', 'productions', 'actors', 'genres'));
+        return view('movies.movie-edit', compact('movie'));
 
     }
 
