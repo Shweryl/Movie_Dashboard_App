@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('gender');
-            $table->string('actor_image');
+            $table->string('actor_image')->nullable();
             $table->timestamps();
         });
     }

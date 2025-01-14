@@ -7,6 +7,7 @@ use App\Models\Director;
 use App\Models\Genre;
 use App\Models\MovieType;
 use App\Models\Production;
+use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\View\View as ViewView;
@@ -31,9 +32,13 @@ class AppServiceProvider extends ServiceProvider
                 'types' => MovieType::all(),
                 'directors' => Director::all(),
                 'productions' => Production::all(),
-                'actors' => Actor::all(),
+                'males' => Actor::where('gender','Male')->get(),
+                'females' => Actor::where('gender','Female')->get(),
                 'genres' => Genre::all(),
             ]);
         });
+
+
+        Paginator::useBootstrap();
     }
 }

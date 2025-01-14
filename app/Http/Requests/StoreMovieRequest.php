@@ -28,13 +28,25 @@ class StoreMovieRequest extends FormRequest
             'release' => 'required|date',
             'rating' => 'required|numeric',
             'movie_type_id' => 'required|exists:movie_types,id',
-            'director_id' => 'required|exists:directors,id',
-            'production_id' => 'required|exists:productions,id',
+            'director' => 'required',
+            'production' => 'required',
             'trailer_link' => 'required|string',
-            'actors' => 'required',
-            'actors.*' => 'required|exists:actors,id',
+            'males' => 'required',
+            'males.*' => 'required',
+            'females' => 'required',
+            'females.*' => 'required',
             'genres' => 'required',
-            'genres.*' => 'required|exists:genres,id',
+            'genres.*' => 'required',
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'males.required' => 'Actors field must be necessary.',
+            'males.*.required' => 'Actors field must be necessary.',
+            'females.required' => 'Actress field must be necessary.',
+            'females.*.required' => 'Actress field must be necessary.',
         ];
     }
 }

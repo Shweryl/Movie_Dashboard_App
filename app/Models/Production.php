@@ -9,6 +9,10 @@ class Production extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'company_name'
+    ];
+
     public function movies(){
         return $this->hasMany(Movie::class);
     }

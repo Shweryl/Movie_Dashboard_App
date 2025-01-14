@@ -22,19 +22,31 @@ class UpdateMovieRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => 'required|string|max:255|unique:movies,title,'.$this->id,
+            'title' => 'required|string|max:255',
             'description' => 'required|string|min:10',
             'movie_image' => 'nullable|file|mimes:png,jpg,jpeg',
             'release' => 'required|date',
             'rating' => 'required|numeric',
             'movie_type_id' => 'required|exists:movie_types,id',
-            'director_id' => 'required|exists:directors,id',
+            'director' => 'required',
             'trailer_link' => 'required|string',
-            'production_id' => 'required|exists:productions,id',
-            'actors' => 'required',
-            'actors.*' => 'required|exists:actors,id',
+            'production' => 'required',
+            'males' => 'required',
+            'males.*' => 'required',
+            'females' => 'required',
+            'females.*' => 'required',
             'genres' => 'required',
-            'genres.*' => 'required|exists:genres,id',
+            'genres.*' => 'required',
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'males.required' => 'Actors field must be necessary.',
+            'males.*.required' => 'Actors field must be necessary.',
+            'females.required' => 'Actress field must be necessary.',
+            'females.*.required' => 'Actress field must be necessary.',
         ];
     }
 }

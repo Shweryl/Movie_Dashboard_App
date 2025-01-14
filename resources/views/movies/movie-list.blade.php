@@ -55,7 +55,7 @@
                                                 </div>
                                             </td>
                                             <td>
-                                                <div class="d-flex flex-column justify-content-center text-center">
+                                                <div class="d-flex flex-column justify-content-center">
                                                     <h6 class="mb-0 text-sm">{{ $movie->title }}</h6>
                                                 </div>
                                             </td>
@@ -99,6 +99,11 @@
 
                                     </tbody>
                                 </table>
+
+                                {{-- paginate --}}
+                                <div class="">
+                                    {{$movies->links()}}
+                                </div>
                             </div>
                         </div>
                     </div>

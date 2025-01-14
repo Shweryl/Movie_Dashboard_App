@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\GenreController;
 use App\Http\Controllers\MovieController;
 use Illuminate\Support\Facades\Route;
 
@@ -37,3 +39,5 @@ Route::get('/register', function () {
 
 
 Route::resource('movies', MovieController::class);
+Route::resource('admins', AdminController::class);
+Route::resource('genres',GenreController::class);
